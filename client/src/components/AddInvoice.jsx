@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Box, TextField, Typography, Button, styled } from '@mui/material';
+import { saveInvoice } from '../services/api';
 
 const Component = styled(Box)({
     marginTop: 20,
@@ -32,7 +33,7 @@ const AddInvoice = () => {
     }
 
     const addNewInvoice = () => {
-        
+        saveInvoice();
     }
 
     return(
