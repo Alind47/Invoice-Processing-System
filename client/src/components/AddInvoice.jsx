@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { Box, TextField, Typography, Button, styled } from '@mui/material';
 
 const Component = styled(Box)({
@@ -13,7 +14,26 @@ const Component = styled(Box)({
     }
 })
 
+const defaultObj = {
+    vendor: '',
+    product: '',
+    amount: '0',
+    date: '',
+    action: 'pending'
+}
+
 const AddInvoice = () => {
+
+
+    const [invoice, setInvoice] = useState(defaultObj);
+
+    const onValueChange = (e) => {
+        setInvoice({ ...invoice, [e.target.name]: e.target.value })
+    }
+
+    const addNewInvoice = () => {
+        
+    }
 
     return(
         <Component>
@@ -22,22 +42,33 @@ const AddInvoice = () => {
                 <TextField
                    variant='standard'
                    placeholder='Enter vender name'
+                   onChange={(e) => onValueChange(e)}
+                   name="standard"
                 />
                 <TextField
                    variant='standard'
                    placeholder='Enter product name'
+                   onChange={(e) => onValueChange(e)}
+                   name="product"
                 />
                 <TextField
                    variant='standard'
                    placeholder='Enter amount (in Rs)'
                    type="number"
+                   onChange={(e) => onValueChange(e)}
+                   name="amount"
                 />
                 <TextField
                    variant='standard'
                    placeholder='Enter date'
                    type="date"
+                   onChange={(e) => onValueChange(e)}
+                   name="date"
                 />
-                <Button variant="contained">
+                <Button 
+                variant="contained"
+                onClick={() => addNewInvoice()}
+                >
                     Add Invoice
                 </Button>
             </Box>
