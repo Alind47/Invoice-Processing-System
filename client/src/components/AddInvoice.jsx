@@ -32,8 +32,8 @@ const AddInvoice = () => {
         setInvoice({ ...invoice, [e.target.name]: e.target.value })
     }
 
-    const addNewInvoice = () => {
-        saveInvoice();
+    const addNewInvoice = async () => {
+        await saveInvoice({ ...invoice, amount: Number(invoice['amount']) });
     }
 
     return(
@@ -45,12 +45,14 @@ const AddInvoice = () => {
                    placeholder='Enter vender name'
                    onChange={(e) => onValueChange(e)}
                    name="standard"
+                   autoComplete='off'
                 />
                 <TextField
                    variant='standard'
                    placeholder='Enter product name'
                    onChange={(e) => onValueChange(e)}
                    name="product"
+                   autoComplete='off'
                 />
                 <TextField
                    variant='standard'
@@ -58,6 +60,7 @@ const AddInvoice = () => {
                    type="number"
                    onChange={(e) => onValueChange(e)}
                    name="amount"
+                   autoComplete='off'
                 />
                 <TextField
                    variant='standard'
@@ -65,6 +68,7 @@ const AddInvoice = () => {
                    type="date"
                    onChange={(e) => onValueChange(e)}
                    name="date"
+                   autoComplete='off'
                 />
                 <Button 
                 variant="contained"

@@ -1,9 +1,11 @@
 
 import axios from 'axios';
 
-export const saveInvoice = () => {
+const API_URL = "";
+
+export const saveInvoice = async (payload) => {
     try{
-        axios.post
+        return await axios.post(`${API_URL}/invoice`, payload);
     } catch(error){
         console.log('Error: ', error.message);
         return error.response.data;
