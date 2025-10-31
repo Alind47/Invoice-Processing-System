@@ -44,7 +44,7 @@ const AddInvoice = () => {
                    variant='standard'
                    placeholder='Enter vender name'
                    onChange={(e) => onValueChange(e)}
-                   name="standard"
+                   name="vendor"
                    autoComplete='off'
                 />
                 <TextField
